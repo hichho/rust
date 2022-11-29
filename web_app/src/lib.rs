@@ -3,7 +3,7 @@ use stylist::{style,yew::styled_component, Style};
 use gloo::console::log;
 use serde::{Serialize,Deserialize};
 mod components;
-use components::atoms::main_title::MainTitle;
+use components::atoms::main_title::{Color,MainTitle};
 #[derive(Serialize,Deserialize)]
 struct MyObject{
     username:String,
@@ -13,6 +13,7 @@ const STYLE_FILE :&str= include_str!("main.css");
 
 #[styled_component(App)]
 pub fn app()-> Html{
+    let main_title_load = Callback::from(|message:String|log!(message));
     let outside_style = Style::new(STYLE_FILE).unwrap();
     let style_sheet = style!(r#"
     color:orange;"#).unwrap();
@@ -33,7 +34,7 @@ pub fn app()-> Html{
     log!(serde_json::to_string_pretty(&my_object).unwrap());
     html!{
         <>
-       <MainTitle title="i am a component"/> 
+       <MainTitle title="i am a component" color={Color::Ok} on_load={main_title_load}/> 
         <div class={outside_style}>
         <h1 class={my_class}>{"Hello World!!!"}</h1>
         <p>{"Hi!there!"}</p>
