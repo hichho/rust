@@ -25,7 +25,7 @@ pub enum Color{
 }
 #[styled_component(MainTitle)]
 pub fn main_title(props:&Props)->Html{
-  props.on_load.emit("i loaded".to_owned());
+  props.on_load.emit("i loaded!!!".to_owned());
   let style_sheet:Style = style!(r#"
   .normal{
     color:white;
