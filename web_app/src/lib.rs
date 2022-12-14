@@ -1,20 +1,40 @@
+mod components;
+
+use std::ops::Deref;
+
+use components::atoms::main_title::{Color, MainTitle};
+use components::molecules::custom_form::CustomForm;
+use components::molecules::custom_form::Data;
 use gloo::console::log;
 use serde::{Deserialize, Serialize};
 use stylist::{style, yew::styled_component, Style};
 use yew::prelude::*;
-mod components;
-use components::atoms::main_title::{Color, MainTitle};
-use components::molecules::custom_form::CustomForm;
-#[derive(Serialize, Deserialize)]
+use yew::ContextProvider;
+#[derive(Serialize, Deserialize, Default)]
 struct MyObject {
     username: String,
     favorite_language: String,
+}
+#[derive(Debug, PartialEq, Clone, Default)]
+pub struct User {
+    pub username: String,
+    pub favorite_language: String,
 }
 const STYLE_FILE: &str = include_str!("main.css");
 
 #[styled_component(App)]
 pub fn app() -> Html {
+    let user_state = use_state(User::default);
     let main_title_load = Callback::from(|message: String| log!(message));
+   let custom_form_submit={
+        let user_state = user_state.clone();
+        Callback::from(move|data:Data|{
+            let mut user = user_state.deref().clone();
+            user.username = data.username;
+            user.favorite_language = data.favorite_language;
+            user_state.set(user);
+        })
+   };
     let outside_style = Style::new(STYLE_FILE).unwrap();
     let style_sheet = style!(
         r#"
@@ -38,9 +58,9 @@ pub fn app() -> Html {
     log!(name);
     log!(serde_json::to_string_pretty(&my_object).unwrap());
     html! {
-        <>
+        <ContextProvider<User> context={user_state.deref().clone()}>
        <MainTitle title="i am a component" color={Color::Normal} on_load={main_title_load}/>
-      <CustomForm/>
+      <CustomForm onsubmit={custom_form_submit}/>
         <div class={outside_style}>
         <h1 class={my_class}>{"Hello World!!!"}</h1>
         <p>{"Hi!there!"}</p>
@@ -61,7 +81,7 @@ pub fn app() -> Html {
         <div class={css!("color:green;font-size:75px;")}>{"hello style"}</div>
         </div>
         </div>
-        </>
+        </ContextProvider<User>>
     }
 }
 fn list_to_html(list: Vec<&str>) -> Vec<Html> {
