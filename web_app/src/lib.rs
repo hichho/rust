@@ -14,6 +14,7 @@ use yew::ContextProvider;
 use yew_router::prelude::*;
 use crate::router::{switch,Route};
 use crate::components::molecules::struct_counter::StructCounter;
+use crate::components::molecules::use_yewdux::UseYewDux;
 #[derive(Serialize, Deserialize, Default)]
 struct MyObject {
     username: String,
@@ -70,7 +71,6 @@ pub fn app() -> Html {
     });
     html! {
         <ContextProvider<User> context={user_state.deref().clone()}>
-        <StructCounter/>
        <MainTitle title="i am a component" color={Color::Normal} on_load={main_title_load}/>
       <CustomForm onsubmit={custom_form_submit}/>
       <BrowserRouter>
