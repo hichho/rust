@@ -5,6 +5,7 @@ use std::ops::Deref;
 use components::atoms::main_title::{Color, MainTitle};
 use components::molecules::custom_form::CustomForm;
 use components::molecules::custom_form::Data;
+use components::atoms::struct_hello::StructHello;
 use gloo::console::log;
 use serde::{Deserialize, Serialize};
 use stylist::{style, yew::styled_component, Style};
@@ -74,6 +75,7 @@ pub fn app() -> Html {
       <Switch<Route> render={Switch::render(switch)}/>
       </BrowserRouter>
         <div class={outside_style}>
+          <StructHello message={"hello form lib.rs".to_owned()}/> 
         <h1 class={my_class}>{"Hello World!!!"}</h1>
         <p>{"Hi!there!"}</p>
         if my_class != "my_class"{
