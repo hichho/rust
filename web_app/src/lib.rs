@@ -13,8 +13,6 @@ use yew::prelude::*;
 use yew::ContextProvider;
 use yew_router::prelude::*;
 use crate::router::{switch,Route};
-use crate::components::molecules::struct_counter::StructCounter;
-use crate::components::molecules::use_yewdux::UseYewDux;
 #[derive(Serialize, Deserialize, Default)]
 struct MyObject {
     username: String,
