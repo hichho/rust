@@ -5,7 +5,7 @@ pub struct YewduxStore {
 }
 impl Default for YewduxStore {
     fn default() -> Self {
-        Self { count: 5 }
+        Self { count: 12 }
     }
 }
 pub fn init() -> Dispatch<BasicStore<YewduxStore>> {

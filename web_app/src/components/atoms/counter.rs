@@ -2,12 +2,15 @@ use yew::prelude::*;
 use yewdux::prelude::*;
 
 use crate::store::counter::YewduxStore;
-pub struct Counter;
+pub struct Counter{
+    _dispatch:DispatchProps<BasicStore<YewduxStore>>
+}
 impl Component for Counter {
     type Message = ();
     type Properties = DispatchProps<BasicStore<YewduxStore>>;
     fn create(ctx: &Context<Self>) -> Self {
-        Self
+        let _dispatch = ctx.props().dispatch().clone();
+        Self {_dispatch}
     }
     fn view(&self, ctx: &Context<Self>) -> Html {
         let count = ctx.props().state().count;
