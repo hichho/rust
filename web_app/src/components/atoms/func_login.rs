@@ -7,7 +7,7 @@ use yewdux_functional::use_store;
 
 #[function_component(FuncLogin)]
 pub fn func_login()->Html{
-  let store = use_store::<BasicStore<FuncYewduxStore>>();
+  let store = use_store::<PersistentStore<FuncYewduxStore>>();
   let handle_form_submit=store.dispatch().reduce_callback_with(|state,event:FocusEvent|{
     event.prevent_default();
     let token = "12fdawe232fdas2323rfda".to_owned();
