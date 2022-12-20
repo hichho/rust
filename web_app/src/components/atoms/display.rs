@@ -1,22 +1,26 @@
 use yew::prelude::*;
-use yewdux::{dispatch, prelude::*};
+use yewdux::{prelude::*};
 
-use crate::store::counter::YewduxStore;
+use crate::store::login::YewduxStore;
 
-pub struct DisplayCount;
+pub struct Display{
+    _dispatch:DispatchProps<BasicStore<YewduxStore>>
+}
 
-impl Component for DisplayCount {
+impl Component for Display {
     type Message = ();
     type Properties = DispatchProps<BasicStore<YewduxStore>>;
     fn create(ctx: &Context<Self>) -> Self {
-        Self
+        let _dispatch = ctx.props().dispatch().clone();
+        Self { _dispatch }
     }
     fn view(&self, ctx: &Context<Self>) -> Html {
-      let count = ctx.props().state().count;
+        let username = &ctx.props().state().username;
+        let password= &ctx.props().state().password;
         html! {
         <div>
-        <h1>{"Display Count"}</h1>
-        <p>{format!("Count:{}",count)}</p>
+        <h1>{"Display Form"}</h1>
+        <p>{format!("Username:{},Password:{}",username,password)}</p>
         </div>
        }
     }

@@ -1,10 +1,9 @@
-use std::fmt::Display;
 
 use yew::prelude::*;
 use yewdux::{prelude::*, dispatch};
-use crate::components::atoms::counter::Counter;
-use crate::components::atoms::display::DisplayCount;
-use crate::store::counter::{init,YewduxStore};
+use crate::components::atoms::login::Login;
+use crate::components::atoms::display::Display;
+use crate::store::login::{init,YewduxStore};
 
 //redux 必须用在router之外
 pub struct ReduxApp{
@@ -13,16 +12,16 @@ pub struct ReduxApp{
 impl Component for ReduxApp{
     type Message = ();
     type Properties = DispatchProps<BasicStore<YewduxStore>>;
-    fn create(ctx: &Context<Self>) -> Self {
+    fn create(_ctx: &Context<Self>) -> Self {
         let dispatch = init();
         Self { dispatch }
     }
-    fn view(&self, ctx: &Context<Self>) -> Html {
+    fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
           <div>
             <h1>{"App"}</h1>
-            <WithDispatch<Counter> />
-            <WithDispatch<DisplayCount> />
+            <WithDispatch<Login> />
+            <WithDispatch<Display> />
           </div>
         }
     }
