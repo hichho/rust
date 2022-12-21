@@ -1,6 +1,7 @@
 mod components;
 mod router;
 mod store;
+mod api;
 use std::ops::Deref;
 
 use crate::router::{switch, Route};
