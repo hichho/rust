@@ -1,27 +1,31 @@
-use crate::{store::func_login::FuncYewduxStore};
+use crate::api::test::test_api;
+use crate::store::func_login::FuncYewduxStore;
 use wasm_bindgen::JsCast;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 use yewdux::prelude::*;
 use yewdux_functional::use_store;
-use crate::api::test::test_api;
-use gloo::console::log;
 
 #[function_component(FuncLogin)]
 pub fn func_login() -> Html {
     let store = use_store::<PersistentStore<FuncYewduxStore>>();
-    let handle_form_submit = store
-        .dispatch()
-        .reduce_callback_with(|state, event: FocusEvent| {
-            event.prevent_default();
-            //special
-            let username = state.username.clone();
-            let password = state.password.clone();
-            wasm_bindgen_futures::spawn_local(async move{
-                let response = test_api(username,password).await;
-                log!(response.q2);
+    let handle_form_submit = {
+        let dispatch = store.dispatch().clone();
+        store
+            .dispatch()
+            .reduce_callback_with(move |state, event: FocusEvent| {
+                event.prevent_default();
+                //special
+                let username = state.username.clone();
+                let password = state.password.clone();
+                let dispatch = dispatch.clone();
+                wasm_bindgen_futures::spawn_local(async move {
+                    let response = test_api(username, password).await;
+                    let token = response.q2;
+                    dispatch.reduce(move |state| state.token = token);
+                })
             })
-        });
+    };
     let handle_username_change = store
         .dispatch()
         .reduce_callback_with(|state, event: Event| {
