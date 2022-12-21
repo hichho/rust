@@ -1,10 +1,10 @@
-use crate::store::func_login::FuncYewduxStore;
+use crate::{store::func_login::FuncYewduxStore};
 use wasm_bindgen::JsCast;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 use yewdux::prelude::*;
 use yewdux_functional::use_store;
-use crate::api::index::api_login;
+use crate::api::test::test_api;
 use gloo::console::log;
 
 #[function_component(FuncLogin)]
@@ -18,8 +18,8 @@ pub fn func_login() -> Html {
             let username = state.username.clone();
             let password = state.password.clone();
             wasm_bindgen_futures::spawn_local(async move{
-                let response = api_login(username,password).await;
-                log!(response.token);
+                let response = test_api(username,password).await;
+                log!(response.q2);
             })
         });
     let handle_username_change = store
