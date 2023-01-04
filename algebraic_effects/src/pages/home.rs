@@ -3,6 +3,7 @@ use stylist::Style;
 use yew::prelude::*;
 use yew_router::prelude::use_history;
 use yew_router::prelude::*;
+use crate::components::icon::icon::Icon;
 
 const STYLE_FILE: &str = include_str!("home.css");
 
@@ -16,13 +17,15 @@ pub fn home() -> Html {
     html! {
       <div class={style}>
       <div class="frame">
-      <h1 class="title">{"Algebraic_effects"}</h1>
+      <Icon  animation={true}/>
+      <Icon color={"green"} animation={true}/>
+      // <h1 class="title">{"Algebraic_effects"}</h1>
       // <h1 class="title">{"代数效应"}</h1>
       // <h1 class="title-zh">{"代数效应"}</h1>
      
       <div class="button" {onclick}>{"start"}</div>
-      <p class="date">{"January 1"}</p>
-      <a href="https://github.com/hichho">{"hichho"}</a>
+      // <p class="date">{"January 1"}</p>
+      // <a href="https://github.com/hichho">{"hichho"}</a>
       </div>
       </div>
     }

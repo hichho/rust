@@ -1,0 +1,20 @@
+.icon {
+  width: 18vh;
+  height: 18vh;
+}
+
+.has-animation {
+  width: 18vh;
+  height: 18vh;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
