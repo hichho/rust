@@ -1,11 +1,5 @@
-.icon {
-  width: 18vh;
-  height: 18vh;
-}
 
 .has-animation {
-  width: 18vh;
-  height: 18vh;
   animation: rotate 10s linear infinite;
 }
 

@@ -1,5 +1,6 @@
 use stylist::{yew::styled_component, Style};
 use yew::prelude::*;
+use gloo::console::log;
 
 #[derive(Properties, PartialEq, Clone)]
 pub struct Props {
@@ -12,10 +13,10 @@ const STYLE_FILE: &str = include_str!("style.css");
 #[styled_component(Icon)]
 pub fn icon(props: &Props) -> Html {
     let style = Style::new(STYLE_FILE).unwrap();
-    let mut animation = "icon";
+    let mut animation:Option<&str> = None;
     let mut color = "#58c4dc".to_string();
     if props.animation.unwrap_or_default() {
-        animation = "has-animation";
+        animation = Some("has-animation");
     }
     match &props.color {
         None => (),
@@ -23,6 +24,8 @@ pub fn icon(props: &Props) -> Html {
             color = i.to_string();
         }
     }
+    log!(props.height.clone());
+    
 
     html! {
         <div class={style}>
