@@ -10,9 +10,10 @@ use yew_router::prelude::*;
 use yew::ContextProvider;
 use types::theme::ThemeEnum;
 use gloo::console::log;
+use crate::components::icon::index::Icon;
 
 const STYLE_FILE: &str = include_str!("./styles/main.css");
-#[derive(Clone,PartialEq,Default)]
+#[derive(Debug,PartialEq,Clone,Default)]
 pub struct Theme{
   pub theme:String,
 }
@@ -31,15 +32,16 @@ pub fn app() -> Html {
     //   log!("");
     // });
     html! {
-      // <ContextProvider<Theme> context={theme_state.deref().clone()}>
+      <ContextProvider<Theme> context={theme_state.deref().clone()}>
       <div class={style}>
       <div class="frame">
       <NavigationBar/>
+      <Icon width={"12vh"} height={"12vh"} animation={true}/>
       <BrowserRouter>
       <Switch<Route> render={Switch::render(switch)}/>
       </BrowserRouter>
       </div>
       </div>
-      // </ContextProvider<Theme>>
+      </ContextProvider<Theme>>
     }
 }
