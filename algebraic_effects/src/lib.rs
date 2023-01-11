@@ -2,6 +2,7 @@ mod components;
 mod types;
 mod pages;
 mod router;
+use std::ops::Deref;
 use crate::components::navigation_bar::index::NavigationBar;
 use crate::router::{switch, Route};
 use stylist::{yew::styled_component, Style};
@@ -9,19 +10,19 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 use yew::ContextProvider;
 use types::theme::ThemeEnum;
-use gloo::console::log;
+// use gloo::console::log;
 use crate::components::icon::index::Icon;
 
 const STYLE_FILE: &str = include_str!("./styles/main.css");
-#[derive(Debug,PartialEq,Clone,Default)]
+#[derive(PartialEq,Clone)]
 pub struct Theme{
-  pub theme:String,
+  pub theme:ThemeEnum,
 }
-// impl Theme{
-//   fn default()->ThemeEnum{
-//     ThemeEnum::Dark
-//   }
-// }
+impl Default for Theme{
+  fn default()->Self{
+    Self { theme: ThemeEnum::Dark }
+  }
+}
 
 #[styled_component(App)]
 pub fn app() -> Html {
