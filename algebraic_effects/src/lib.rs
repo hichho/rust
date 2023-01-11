@@ -44,7 +44,7 @@ pub fn app() -> Html {
       <div class={style}>
       <div class="frame">
       <NavigationBar/>
-      <Icon width={"12vh"} height={"12vh"} animation={true}/>
+      // <Icon width={"12vh"} height={"12vh"} animation={true}/>
       <BrowserRouter>
       <Switch<Route> render={Switch::render(switch)}/>
       </BrowserRouter>
