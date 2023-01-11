@@ -1,4 +1,3 @@
-use crate::components::icon::index::Icon;
 use crate::router::Route;
 use stylist::Style;
 use yew::prelude::*;
