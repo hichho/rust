@@ -1,3 +1,4 @@
 target/
 dist/
 .fleet/settings.json
+./vscode

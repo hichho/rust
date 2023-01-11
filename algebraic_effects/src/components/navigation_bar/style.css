@@ -1,11 +1,15 @@
+.nav-frame{
+  width:100vw;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.2);
+}
 .navigation {
-  height: 5.2vh;
+  height: 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.4vw;
-  /* border-bottom: 1px solid rgba(200, 200, 200, 0.2); */
-  border: 1px solid red;
+  width:calc(100vw - 28px);
 }
 
 .left-nav {
@@ -15,7 +19,7 @@
 }
 
 .icon-container {
-  padding: 0.16vh;
+  padding: 4px;
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -24,8 +28,8 @@
 }
 
 .title {
-  margin: 0 0.4vw;
-  font-size: 2vh;
+  margin: 0 12px;
+  font-size: 16px;
   line-height: 100%;
   font-family: Open Sans, -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
@@ -33,10 +37,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 14vw;
-  border: 1px solid red;
 }
 a{
   color:rgb(188,193,205);
   cursor: pointer;
+  margin-right: 12px;
+}
+.btn-container{
+  width:32px;
+  height: 32px;
+  border: 1px solid red;
 }
