@@ -4,7 +4,7 @@ mod pages;
 mod router;
 mod store;
 mod types;
-mod util;
+mod utils;
 use crate::components::icon::Icon;
 use crate::components::navigation_bar::NavigationBar;
 use crate::hooks::use_theme::use_theme;
@@ -16,7 +16,7 @@ use types::theme::ThemeEnum;
 use yew::prelude::*;
 use yew::ContextProvider;
 use yew_router::prelude::*;
-const STYLE_FILE: &str = include_str!("./styles/main.css");
+const STYLE_FILE: &str = include_str!("./styles/dark_theme.css");
 #[derive(PartialEq, Clone)]
 pub struct Theme {
     pub theme: ThemeEnum,
