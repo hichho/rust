@@ -12,13 +12,11 @@
   align-items: center;
   width:calc(100vw - 28px);
 }
-
 .left-nav {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-
 .icon-container {
   padding: 2px;
   border-radius: 100%;
@@ -28,7 +26,6 @@
   background-color: rgba(0, 0, 0, 1);
   border: 1px solid rgba(0,0,0,0.1);
 }
-
 .title {
   margin: 0 12px;
   font-size: 16px;
@@ -54,5 +51,10 @@ a{
 .btn-container{
   width:32px;
   height: 32px;
-  border: 1px solid red;
+  border: none;
+  background-color:transparent;
+  background-image: none;
+  color:white;
+  margin-top: 5px;
+  cursor: pointer;
 }
