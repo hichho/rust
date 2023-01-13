@@ -1,14 +1,15 @@
-use crate::{components::icon::Icon, ThemeContext};
-use stylist::{yew::styled_component, Style};
+use crate::{components::icon::Icon, ThemeContext, hooks::use_change_theme::use_change_theme};
+use stylist::{yew::styled_component};
 use yew::prelude::*;
 use crate::types::theme::ThemeEnum;
-const STYLE_FILE: &str = include_str!("style.css");
+const DARK_STYLE_FILE: &str = include_str!("dark_theme.css");
+const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
 
 #[styled_component(NavigationBar)]
 pub fn navigation_bar() -> Html {
-    let style = Style::new(STYLE_FILE).unwrap();
     let theme_ctx = use_context::<ThemeContext>().unwrap();
     let theme = theme_ctx.theme.to_owned();
+    let style = use_change_theme(theme.clone(),DARK_STYLE_FILE,LIGHT_STYLE_FILE);
     let onclick = Callback::from(move|_| 
       {
         let mut expected_theme = ThemeEnum::Dark;
@@ -27,8 +28,9 @@ pub fn navigation_bar() -> Html {
       <div class="navigation">
       <div class="left-nav">
       <div class="icon-container">
-      <Icon height={"32px"} width={"32px"}/>
+      <Icon height={"34px"} width={"34px"}/>
       </div>
+      <img src="./assets/rust.jpg" class="rust" alt="rust"/>
       <p class="title">{"Algebraic Effects"}</p>
       </div>
       <div class="right-nav">

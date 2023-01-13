@@ -1,9 +1,9 @@
 use crate::types::theme::ThemeEnum;
 use stylist::{Style};
 
-pub fn use_change_theme(theme:ThemeEnum,dark_style:Style,light_style:Style)->Style{
+pub fn use_change_theme(theme:ThemeEnum,dark_style_path:&str,light_style_path:&str)->Style{
   match theme{
-    ThemeEnum::Dark=>dark_style,
-    ThemeEnum::Light=>light_style,
+    ThemeEnum::Dark=>Style::new(dark_style_path).unwrap(),
+    ThemeEnum::Light=>Style::new(light_style_path).unwrap(),
   }
 }

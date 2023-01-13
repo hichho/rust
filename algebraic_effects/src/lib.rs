@@ -11,13 +11,13 @@ use crate::hooks::use_change_theme::use_change_theme;
 use crate::hooks::use_default_theme::use_default_theme;
 use crate::router::{switch, Route};
 use std::rc::Rc;
-use stylist::{yew::styled_component, Style};
+use stylist::{yew::styled_component};
 use types::theme::ThemeEnum;
 use yew::prelude::*;
 use yew::ContextProvider;
 use yew_router::prelude::*;
-const DARK_STYLE_FILE: &str = include_str!("./styles/dark_theme.css");
-const LIGHT_STYLE_FILE: &str = include_str!("./styles/light_theme.css");
+const DARK_STYLE_CONTENT: &str = include_str!("./styles/dark_theme.css");
+const LIGHT_STYLE_CONTENT: &str = include_str!("./styles/light_theme.css");
 #[derive(PartialEq, Clone)]
 pub struct Theme {
     pub theme: ThemeEnum,
@@ -38,10 +38,8 @@ impl Reducible for Theme {
 pub type ThemeContext = UseReducerHandle<Theme>;
 #[styled_component(App)]
 pub fn app() -> Html {
-    let dark_style = Style::new(DARK_STYLE_FILE).unwrap();
-    let light_style = Style::new(LIGHT_STYLE_FILE).unwrap();
     let theme = use_reducer(Theme::default);
-    let style = use_change_theme(theme.clone().theme, dark_style, light_style);
+    let style = use_change_theme(theme.clone().theme,DARK_STYLE_CONTENT,LIGHT_STYLE_CONTENT);
     html! {
       <ContextProvider<ThemeContext> context={theme}>
       <div class={style}>
