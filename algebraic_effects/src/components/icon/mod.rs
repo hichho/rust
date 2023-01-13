@@ -1,6 +1,5 @@
 use stylist::{yew::styled_component, Style};
 use yew::prelude::*;
-use gloo::console::log;
 
 #[derive(Properties, PartialEq, Clone)]
 pub struct Props {

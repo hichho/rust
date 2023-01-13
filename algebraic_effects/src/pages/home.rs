@@ -10,12 +10,12 @@ const STYLE_FILE: &str = include_str!("../styles/home.css");
 pub fn home() -> Html {
     let style = Style::new(STYLE_FILE).unwrap();
     let history = use_history().unwrap();
-    // let onclick = Callback::from(move |_| {
-        // history.push(Route::Rust);
-    // });
+    let onclick = Callback::from(move |_| {
+        history.push(Route::Rust);
+    });
     html! {
           <div class={style}>
-        //   <div class="button" {onclick}>{"start"}</div>
+          <div class="button" {onclick}>{"start"}</div>
           </div>
         }
 }
