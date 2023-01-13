@@ -16,6 +16,7 @@ use types::theme::ThemeEnum;
 use yew::prelude::*;
 use yew::ContextProvider;
 use yew_router::prelude::*;
+use crate::hooks::use_style_file_path::use_style_file_path;
 const STYLE_FILE: &str = include_str!("./styles/dark_theme.css");
 #[derive(PartialEq, Clone)]
 pub struct Theme {
@@ -39,6 +40,8 @@ pub fn app() -> Html {
     let theme = use_reducer(|| Theme{
       theme:ThemeEnum::Light
     });
+
+    use_style_file_path(theme.clone().theme,Some("./styles/dark_theme.css"));
     html! {
       <ContextProvider<ThemeContext> context={theme}>
       <div class={style}>

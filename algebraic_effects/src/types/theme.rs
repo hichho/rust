@@ -1,5 +1,5 @@
 use std::fmt;
-#[derive(Clone,PartialEq,Debug)]
+#[derive(Clone,PartialEq,Debug,Copy)]
 pub enum ThemeEnum{
   Dark,Light
 }
