@@ -1,7 +1,8 @@
-use crate::{components::icon::Icon, ThemeContext, hooks::use_change_theme::use_change_theme};
+use crate::{components::icon::Icon, ThemeContext};
 use stylist::{yew::styled_component};
 use yew::prelude::*;
 use crate::types::theme::ThemeEnum;
+use crate::hooks::use_theme_file::use_theme_file;
 const DARK_STYLE_FILE: &str = include_str!("dark_theme.css");
 const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
 
@@ -9,7 +10,7 @@ const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
 pub fn navigation_bar() -> Html {
     let theme_ctx = use_context::<ThemeContext>().unwrap();
     let theme = theme_ctx.theme.to_owned();
-    let style = use_change_theme(theme.clone(),DARK_STYLE_FILE,LIGHT_STYLE_FILE);
+    let style =use_theme_file(DARK_STYLE_FILE,LIGHT_STYLE_FILE);
     let onclick = Callback::from(move|_| 
       {
         let mut expected_theme = ThemeEnum::Dark;
