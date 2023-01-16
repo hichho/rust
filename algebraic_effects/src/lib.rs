@@ -5,7 +5,6 @@ mod router;
 mod store;
 mod types;
 mod utils;
-use crate::components::icon::Icon;
 use crate::components::navigation_bar::NavigationBar;
 use crate::hooks::use_change_theme::use_change_theme;
 use crate::hooks::use_default_theme::use_default_theme;
@@ -45,7 +44,6 @@ pub fn app() -> Html {
       <div class={style}>
       <div class="frame">
       <NavigationBar/>
-      <Icon width={"12vh"} height={"12vh"} animation={true}/>
       <BrowserRouter>
       <Switch<Route> render={Switch::render(switch)}/>
       </BrowserRouter>
