@@ -16,9 +16,7 @@
   width: 18vh;
   height: 18vh;
   color: white;
-  transform: scale(1.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 2.4vh;
 }

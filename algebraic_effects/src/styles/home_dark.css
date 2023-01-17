@@ -79,6 +79,8 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+
 .home-container{
   width:100vw;
   height: calc(100vh - 58px);
@@ -101,3 +103,9 @@
 
   /* color: red; */
 /* } */
+.icons{
+  display: flex;
+  max-width: 100vw;
+  min-width: 50vh;
+  justify-content: space-around;
+}

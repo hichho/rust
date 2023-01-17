@@ -22,8 +22,10 @@ pub fn home() -> Html {
         <div class="home-bg">
         </div>
         <div class="home-container">
+        <div class="icons">
         <Icon svg={IconEnum::React} width={"18vh"} height={"18vh"} animation={true}/>
         <Icon svg={IconEnum::Rust} width={"18vh"} height={"18vh"} animation={true}/>
+        </div>
         <div class="button" {onclick}>{"start"}</div>
         </div>
         </div>
