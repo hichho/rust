@@ -5,6 +5,6 @@ pub fn use_default_theme()-> ThemeEnum{
   if hour <=6 || hour>=18{
     ThemeEnum::Dark
   } else{
-    ThemeEnum::Light
+    ThemeEnum::Dark
   }
 }

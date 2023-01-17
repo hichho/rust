@@ -3,6 +3,7 @@ use stylist::{yew::styled_component};
 use yew::prelude::*;
 use crate::types::theme::ThemeEnum;
 use crate::hooks::use_theme_file::use_theme_file;
+use crate::types::icon::IconEnum;
 const DARK_STYLE_FILE: &str = include_str!("dark_theme.css");
 const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
 
@@ -29,7 +30,7 @@ pub fn navigation_bar() -> Html {
       <div class="navigation">
       <div class="left-nav">
       <div class="icon-container">
-      <Icon height={"34px"} width={"34px"}/>
+      <Icon svg={IconEnum::React} height={"34px"} width={"34px"}/>
       </div>
       <img src="./assets/rust.jpg" class="rust" alt="rust"/>
       <p class="title">{"Algebraic Effects"}</p>

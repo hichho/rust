@@ -1,6 +1,5 @@
-
 .has-animation {
-  animation: rotate 10s linear infinite;
+  animation: rotate 28s linear infinite;
 }
 
 @keyframes rotate {
@@ -11,4 +10,15 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.rust_icon {
+  width: 18vh;
+  height: 18vh;
+  color: white;
+  transform: scale(1.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2.4vh;
 }

@@ -5,6 +5,7 @@ use yew_router::prelude::use_history;
 use crate::components::icon::Icon;
 use crate::hooks::use_theme_file::use_theme_file;
 use yew_router::prelude::*;
+use crate::types::icon::IconEnum;
 
 const DARK_STYLE_FILE: &str = include_str!("../styles/home_dark.css");
 const LIGHT_STYLE_FILE: &str = include_str!("../styles/home_light.css");
@@ -21,7 +22,8 @@ pub fn home() -> Html {
         <div class="home-bg">
         </div>
         <div class="home-container">
-        <Icon width={"12vh"} height={"12vh"} animation={true}/>
+        <Icon svg={IconEnum::React} width={"18vh"} height={"18vh"} animation={true}/>
+        <Icon svg={IconEnum::Rust} width={"18vh"} height={"18vh"} animation={true}/>
         <div class="button" {onclick}>{"start"}</div>
         </div>
         </div>
