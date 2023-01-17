@@ -30,7 +30,10 @@ pub fn navigation_bar() -> Html {
       );
       
       let handle_click_react= Callback::from(move|_|{
-        history.push(Route::Home)
+        // history.push(Route::Home)
+        match history{
+          
+        }
       });
     html! {
       <div class={style}>
