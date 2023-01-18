@@ -5,7 +5,6 @@ mod router;
 mod store;
 mod types;
 mod utils;
-use crate::components::navigation_bar::NavigationBar;
 use crate::hooks::use_change_theme::use_change_theme;
 use crate::hooks::use_default_theme::use_default_theme;
 use crate::router::{switch, Route};
@@ -43,7 +42,6 @@ pub fn app() -> Html {
       <ContextProvider<ThemeContext> context={theme}>
       <div class={style}>
       <div class="frame">
-      <NavigationBar/>
       <BrowserRouter>
       <Switch<Route> render={Switch::render(switch)}/>
       </BrowserRouter>

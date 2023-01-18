@@ -4,8 +4,7 @@ use yew::prelude::*;
 use crate::types::theme::ThemeEnum;
 use crate::hooks::use_theme_file::use_theme_file;
 use crate::types::icon::IconEnum;
-use crate::utils::router_go;
-use crate::types::router::RouterEnum;
+use web_sys::window;
 
 const DARK_STYLE_FILE: &str = include_str!("dark_theme.css");
 const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
@@ -25,22 +24,25 @@ pub fn navigation_bar() -> Html {
           ThemeEnum::Light=>(),
         }
        theme_ctx.dispatch(expected_theme);
+       ()
       }
       );
       
-      let handle_click_react= Callback::from(move|_|{
-        router_go(RouterEnum::Home);
+      let handle_click_rust = Callback::from(move|_|{
+        let url = "https://docs.rs/yew-router/0.16.0/yew_router/index.html";
+        let location = window().unwrap().location();
+        location.set_href(url).unwrap();
       });
     html! {
       <div class={style}>
       <div class="nav-frame">
       <div class="navigation">
       <div class="left-nav">
-      <div class="icon-container">
-      <Icon svg={IconEnum::React} height={"34px"} width={"34px"} onclick={handle_click_react}/>
+      <div class="icon-container" style="animation:none">
+      <Icon svg={IconEnum::React} height={"34px"} width={"34px"}/>
       </div>
-      <img src="./assets/rust.jpg" class="rust" alt="rust"/>
-      <p class="title">{"Algebraic Effects"}</p>
+      <img src="./assets/rust.jpg" class="rust" onclick={handle_click_rust} alt="rust"/>
+      <p class="title" onclick={Callback::from(|_|())}>{"Algebraic Effects"}</p>
       </div>
       <div class="right-nav">
       <a style="margin-left:12px">{"Stage"}</a>
