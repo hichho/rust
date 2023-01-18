@@ -1,12 +1,12 @@
 use crate::{components::icon::Icon, ThemeContext};
 use stylist::{yew::styled_component};
 use yew::prelude::*;
-use yew_router::prelude::*;
-use yew_router::prelude::use_history;
 use crate::types::theme::ThemeEnum;
 use crate::hooks::use_theme_file::use_theme_file;
-use crate::router::Route;
 use crate::types::icon::IconEnum;
+use crate::utils::router_go;
+use crate::types::router::RouterEnum;
+
 const DARK_STYLE_FILE: &str = include_str!("dark_theme.css");
 const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
 
@@ -14,7 +14,6 @@ const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
 pub fn navigation_bar() -> Html {
     let theme_ctx = use_context::<ThemeContext>().unwrap();
     let theme = theme_ctx.theme.to_owned();
-    let history = use_history();
     let style =use_theme_file(DARK_STYLE_FILE,LIGHT_STYLE_FILE);
     let toggle_theme = Callback::from(move|_| 
       {
@@ -30,10 +29,7 @@ pub fn navigation_bar() -> Html {
       );
       
       let handle_click_react= Callback::from(move|_|{
-        // history.push(Route::Home)
-        match history{
-          
-        }
+        router_go(RouterEnum::Home);
       });
     html! {
       <div class={style}>
