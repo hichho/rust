@@ -25,9 +25,9 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 1);
   border: 1px solid rgba(0,0,0,0.1);
-  animation: transColorToBlack 0.4s;
+  animation: trans_color_to_black 0.4s;
 }
-@keyframes transColorToBlack {
+@keyframes trans_color_to_black{
   0%{
   background-color:white;
   }

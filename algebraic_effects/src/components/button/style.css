@@ -1,4 +1,20 @@
 .button{
- padding:12px; 
- background-color: gold;
+ padding:10px 18px; 
+ border-radius: 8px;
+ background-color:#087ea4;
+ cursor: pointer;
+ font-weight: 500;
+ font-size: 16px;
+}
+.button:hover{
+  background-color: #107191;
+  animation: hoverButton 0.3s;
+}
+@keyframes hoverButton {
+  0%{
+ background-color:#087ea4;
+  }
+ 100%{
+  background-color: #107191;
+ } 
 }

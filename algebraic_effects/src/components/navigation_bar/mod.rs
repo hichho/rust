@@ -1,10 +1,13 @@
-use crate::{components::icon::Icon, ThemeContext};
-use stylist::{yew::styled_component};
-use yew::prelude::*;
-use crate::types::theme::ThemeEnum;
 use crate::hooks::use_theme_file::use_theme_file;
+use crate::{router::Route};
 use crate::types::icon::IconEnum;
+use crate::types::theme::ThemeEnum;
+use crate::{components::icon::Icon, ThemeContext};
+use gloo::console::log;
+use stylist::yew::styled_component;
 use web_sys::window;
+use yew::prelude::*;
+use yew_router::prelude::{use_history, History};
 
 const DARK_STYLE_FILE: &str = include_str!("dark_theme.css");
 const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
@@ -13,36 +16,39 @@ const LIGHT_STYLE_FILE: &str = include_str!("light_theme.css");
 pub fn navigation_bar() -> Html {
     let theme_ctx = use_context::<ThemeContext>().unwrap();
     let theme = theme_ctx.theme.to_owned();
-    let style =use_theme_file(DARK_STYLE_FILE,LIGHT_STYLE_FILE);
-    let toggle_theme = Callback::from(move|_| 
-      {
+    let style = use_theme_file(DARK_STYLE_FILE, LIGHT_STYLE_FILE);
+    let history = use_history().unwrap();
+    let toggle_theme = Callback::from(move |_| {
         let mut expected_theme = ThemeEnum::Dark;
-        match theme_ctx.theme{
-          ThemeEnum::Dark=>{
-            expected_theme = ThemeEnum::Light;
-          },
-          ThemeEnum::Light=>(),
+        match theme_ctx.theme {
+            ThemeEnum::Dark => {
+                expected_theme = ThemeEnum::Light;
+            }
+            ThemeEnum::Light => (),
         }
-       theme_ctx.dispatch(expected_theme);
-       ()
-      }
-      );
-      
-      let handle_click_rust = Callback::from(move|_|{
+        theme_ctx.dispatch(expected_theme);
+        ()
+    });
+
+    let handle_click_rust = Callback::from(move |_| {
         let url = "https://docs.rs/yew-router/0.16.0/yew_router/index.html";
         let location = window().unwrap().location();
         location.set_href(url).unwrap();
-      });
+    });
+    let handle_click_title = Callback::from(move |_:MouseEvent| {
+        log!("123");
+        history.push(Route::Home);
+    });
     html! {
       <div class={style}>
       <div class="nav-frame">
       <div class="navigation">
       <div class="left-nav">
-      <div class="icon-container" style="animation:none">
+      <div class="icon-container">
       <Icon svg={IconEnum::React} height={"34px"} width={"34px"}/>
       </div>
       <img src="./assets/rust.jpg" class="rust" onclick={handle_click_rust} alt="rust"/>
-      <p class="title" onclick={Callback::from(|_|())}>{"Algebraic Effects"}</p>
+      <p class="title" onclick={handle_click_title}>{"Algebraic Effects"}</p>
       </div>
       <div class="right-nav">
       <a style="margin-left:12px">{"Stage"}</a>

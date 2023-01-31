@@ -7,10 +7,10 @@
   color: white;
   font-family: Open Sans, -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: 14px;
-  animation: transBgColorToBlack 0.4s;
+  animation: trans_bg_color_to_black 0.4s;
 }
 
-@keyframes transBgColorToBlack {
+@keyframes trans_bg_color_to_black{
   0% {
     background-color: #fff;
   }
