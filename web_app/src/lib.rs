@@ -3,7 +3,6 @@ mod router;
 mod store;
 mod api;
 use std::ops::Deref;
-
 use crate::router::{switch, Route};
 use components::atoms::main_title::{Color, MainTitle};
 use components::atoms::struct_hello::StructHello;

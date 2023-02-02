@@ -17,7 +17,7 @@ pub fn home() -> Html {
     let style = use_theme_file(DARK_STYLE_FILE, LIGHT_STYLE_FILE);
     let history = use_history().unwrap();
     let onclick = Callback::from(move |_| {
-        history.push(Route::Rust);
+        history.push(Route::WebAssembly);
     });
     let click_react = Callback::from(move |_: _| {
         let url = "https://conf.reactjs.org/";

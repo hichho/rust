@@ -1,0 +1,44 @@
+.menu-frame {
+  width: 280px;
+  height: calc(100vh - 58px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.menu-title-container {
+  width: 246px;
+  padding: 16px;
+  border: 1px solid red;
+}
+.menu-container{
+  display: flex;
+  justify-content: space-between;
+  width:246px;
+}
+.menu-title {
+  margin-top: 12px;
+  width: 100%;
+  padding-bottom: 12px;
+  color:#087ea4;
+  font-family: Optimistic Display,-apple-system,ui-sans-serif,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+
+.menu-border {
+  background: #087ea4;
+  width: 118px;
+  height: 3px;
+  border-radius: 2px;
+}
+.menu-text{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width:232px;
+  padding: 12px;
+  background-color: aqua;
+  margin: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+}
