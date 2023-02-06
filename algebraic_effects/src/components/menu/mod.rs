@@ -1,36 +1,52 @@
-use crate::types::menu::{MENUARRAY, MenuEnum};
-use stylist::{yew::styled_component,Style};
+use crate::{
+    store::{menu::{MenuStore}, self},
+    types::menu::{MenuItemEnum, MENU_ARRAY},
+};
+use crate::types::menu::MenuTab;
+use gloo::console::log;
+use stylist::{yew::styled_component, Style};
 use yew::prelude::*;
-const STYLE_FILE:&str = include_str!("style.css");
+use yewdux::prelude::{Dispatcher, PersistentStore};
+use yewdux_functional::use_store;
+const STYLE_FILE: &str = include_str!("style.css");
 #[styled_component(Menu)]
 pub fn menu() -> Html {
-  let style = Style::new(STYLE_FILE).unwrap();
+    let store = use_store::<PersistentStore<MenuStore>>();
+    let style = Style::new(STYLE_FILE).unwrap();
+    let handle_click_menu = store
+        .dispatch()
+        .reduce_callback_with(|state, value: MenuTab| {
+            state.menu_tab = value;
+        });
+  
+        
+
     html! {
-      <div class={style}>
-      <div class="menu-frame">
-      <div class="menu-title-container">
-      <div><input/></div>
+          <div class={style}>
+          <div class="menu-frame">
+          <div class="menu-title-container">
+          <div><input/></div>
 
 
-<div class="menu-container">
-    <div class="menu-item">
-      <div class="menu-title">{"Menu"}</div>
-      <div class="menu-border"></div>
+    <div class="menu-container">
+        <div class="menu-item">
+          <div class="menu-title">{"Menu"}</div>
+          <div class="menu-border"></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-title">{"Other"}</div>
+          <div class="menu-border"></div>
+        </div>
     </div>
-    <div class="menu-item">
-      <div class="menu-title">{"Other"}</div>
-      <div class="menu-border"></div>
-    </div>
-</div>
 
 
-      </div>
-      {menu_enum_to_html(MENUARRAY)}
-      </div>
-      </div>
-    }
+          </div>
+          {menu_enum_to_html(MENU_ARRAY)}
+          </div>
+          </div>
+        }
 }
-fn menu_enum_to_html(menu: [MenuEnum; 2]) -> Vec<Html>{
+fn menu_enum_to_html(menu: [MenuItemEnum; 2]) -> Vec<Html> {
     menu.iter()
         .map(|item| {
             html! {
