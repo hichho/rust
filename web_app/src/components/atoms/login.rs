@@ -2,7 +2,6 @@ use wasm_bindgen::JsCast;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 use yewdux::prelude::*;
-use gloo::console::log;
 use crate::store::login::YewduxStore;
 pub struct Login{
     _dispatch:DispatchProps<BasicStore<YewduxStore>>
@@ -21,8 +20,6 @@ impl Component for Login{
                 event.prevent_default();
                 let username = state.username.clone();
                 let password= state.password.clone();
-                log!("username:",username);
-                log!("password:",password);
             })
         };
         let handle_username_change=ctx.props().dispatch().reduce_callback_with(|state,event:Event|{

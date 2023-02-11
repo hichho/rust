@@ -3,7 +3,6 @@ use crate::{router::Route};
 use crate::types::icon::IconEnum;
 use crate::types::theme::ThemeEnum;
 use crate::{components::icon::Icon, ThemeContext};
-use gloo::console::log;
 use stylist::yew::styled_component;
 use web_sys::window;
 use yew::prelude::*;
@@ -36,7 +35,6 @@ pub fn navigation_bar() -> Html {
         location.set_href(url).unwrap();
     });
     let handle_click_title = Callback::from(move |_:MouseEvent| {
-        log!("123");
         history.push(Route::Home);
     });
     html! {

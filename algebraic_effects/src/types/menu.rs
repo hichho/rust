@@ -21,9 +21,14 @@ pub enum MenuTab {
 impl fmt::Display for MenuTab {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
-            MenuTab::MenuLabel => write!(f, "Menu"),
+            MenuTab::MenuLabel => write!(f, "menu"),
             MenuTab::OtherLabel => write!(f, "other"),
         }
+    }
+}
+impl Default for MenuTab {
+    fn default()->Self{
+        MenuTab::MenuLabel
     }
 }
 pub const MENU_ARRAY: [MenuItemEnum; 2] = [MenuItemEnum::WebAssembly, MenuItemEnum::Rust];

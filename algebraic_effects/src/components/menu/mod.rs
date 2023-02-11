@@ -1,39 +1,48 @@
+use crate::store::menu::change_menu_tab;
+use crate::types::menu::MenuTab;
 use crate::{
-    store::{menu::{MenuStore}, self},
+    store::menu::MenuStore,
     types::menu::{MenuItemEnum, MENU_ARRAY},
 };
-use crate::types::menu::MenuTab;
-use gloo::console::log;
 use stylist::{yew::styled_component, Style};
 use yew::prelude::*;
-use yewdux::prelude::{Dispatcher, PersistentStore};
-use yewdux_functional::use_store;
+use yewdux::prelude::*;
 const STYLE_FILE: &str = include_str!("style.css");
+
 #[styled_component(Menu)]
 pub fn menu() -> Html {
-    let store = use_store::<PersistentStore<MenuStore>>();
     let style = Style::new(STYLE_FILE).unwrap();
-    let handle_click_menu = store
-        .dispatch()
-        .reduce_callback_with(|state, value: MenuTab| {
-            state.menu_tab = value;
-        });
-  
-        
+    let (_store, store_dispatch) = use_store::<MenuStore>();
+
+    let handle_click_menu = {
+        let store_dispatch = store_dispatch.clone();
+        Callback::from(move |_| {
+            let store_dispatch = store_dispatch.clone();
+            change_menu_tab(MenuTab::MenuLabel, store_dispatch);
+        })
+    };
+    let handle_click_other = {
+        let store_dispatch = store_dispatch.clone();
+        Callback::from(move |_| {
+            let store_dispatch = store_dispatch.clone();
+            change_menu_tab(MenuTab::OtherLabel, store_dispatch);
+        })
+    };
+    let menu_tab = _store.menu_tab.clone();
 
     html! {
           <div class={style}>
           <div class="menu-frame">
           <div class="menu-title-container">
           <div><input/></div>
-
+          <div>{format!("test:{}",menu_tab)}</div>
 
     <div class="menu-container">
-        <div class="menu-item">
+        <div class="menu-item" onclick={handle_click_menu}>
           <div class="menu-title">{"Menu"}</div>
           <div class="menu-border"></div>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" onclick={handle_click_other}>
           <div class="menu-title">{"Other"}</div>
           <div class="menu-border"></div>
         </div>
