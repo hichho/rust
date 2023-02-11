@@ -22,6 +22,7 @@
   width: 100%;
   padding-bottom: 12px;
   color:#087ea4;
+  cursor: pointer;
   font-family: Optimistic Display,-apple-system,ui-sans-serif,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
@@ -41,4 +42,19 @@
   margin: 4px;
   border-radius: 8px;
   cursor: pointer;
+}
+.menu-title-unchecked{
+  color:rgba(245,240,240);
+  margin-top: 12px;
+  width: 100%;
+  padding-bottom: 12px;
+  cursor: pointer;
+  font-family: Optimistic Display,-apple-system,ui-sans-serif,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+.menu-border-unchecked{
+  background: rgba(255, 255, 255, 0.3);
+  width: 118px;
+  height: 1.5px;
+  border-radius: 2px;
+  margin-top: 1px;
 }

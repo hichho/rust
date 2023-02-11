@@ -28,23 +28,22 @@ pub fn menu() -> Html {
             change_menu_tab(MenuTab::OtherLabel, store_dispatch);
         })
     };
-    let menu_tab = _store.menu_tab.clone();
+    // let menu_tab = _store.menu_tab.clone();
 
     html! {
           <div class={style}>
           <div class="menu-frame">
           <div class="menu-title-container">
           <div><input/></div>
-          <div>{format!("test:{}",menu_tab)}</div>
 
     <div class="menu-container">
-        <div class="menu-item" onclick={handle_click_menu}>
-          <div class="menu-title">{"Menu"}</div>
-          <div class="menu-border"></div>
+        <div  onclick={handle_click_menu}>
+          <div class={get_selected_menu_class(MenuTab::MenuLabel)}>{"Menu"}</div>
+          <div class={get_selected_menu_border_class(MenuTab::MenuLabel)}></div>
         </div>
-        <div class="menu-item" onclick={handle_click_other}>
-          <div class="menu-title">{"Other"}</div>
-          <div class="menu-border"></div>
+        <div onclick={handle_click_other}>
+          <div class={get_selected_menu_class(MenuTab::OtherLabel)}>{"Other"}</div>
+          <div class={get_selected_menu_border_class(MenuTab::OtherLabel)}></div>
         </div>
     </div>
 
@@ -66,4 +65,22 @@ fn menu_enum_to_html(menu: [MenuItemEnum; 2]) -> Vec<Html> {
             }
         })
         .collect()
+}
+
+fn get_selected_menu_class(menu_tab:MenuTab) -> String {
+    let mut menu_class = "menu-title-unchecked".to_string();
+    let (_store,_store_dispatch) = use_store::<MenuStore>();
+    if _store.menu_tab == menu_tab{
+        menu_class = "menu-title".to_string();
+    }
+    menu_class
+}
+
+fn get_selected_menu_border_class(menu_tab:MenuTab)->String{
+    let mut menu_border_class = "menu-border-unchecked".to_string();
+    let (_store,_store_dispatch) = use_store::<MenuStore>();
+    if _store.menu_tab == menu_tab{
+        menu_border_class = "menu-border".to_string();
+    }
+    menu_border_class
 }
