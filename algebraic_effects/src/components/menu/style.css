@@ -10,7 +10,6 @@
 .menu-title-container {
   width: 246px;
   padding: 16px;
-  border: 1px solid red;
 }
 .menu-container{
   display: flex;

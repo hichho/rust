@@ -1,0 +1,12 @@
+.web-frame{
+  display: flex;
+  flex-direction: column;
+}
+.web-body{
+  display: flex;
+}
+.web-content{
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid gold;
+}

@@ -1,4 +1,4 @@
-use crate::store::menu::{change_menu_tab,set_current_menu};
+use crate::store::menu::{change_menu_tab, set_current_menu};
 use crate::types::menu::MenuTab;
 use crate::{
     store::menu::MenuStore,
@@ -6,7 +6,10 @@ use crate::{
 };
 use stylist::{yew::styled_component, Style};
 use yew::prelude::*;
+use yew_router::prelude::use_history;
+use yew_router::prelude::*;
 use yewdux::prelude::*;
+use crate::router::Route;
 const STYLE_FILE: &str = include_str!("style.css");
 
 #[styled_component(Menu)]
@@ -28,14 +31,14 @@ pub fn menu() -> Html {
             change_menu_tab(MenuTab::OtherLabel, store_dispatch);
         })
     };
- 
+
     // let menu_tab = _store.menu_tab.clone();
 
     html! {
           <div class={style}>
           <div class="menu-frame">
           <div class="menu-title-container">
-          <div><input/></div>
+        //   <div><input/></div>
     <div class="menu-container">
         <div  onclick={handle_click_menu}>
           <div class={get_selected_menu_class(MenuTab::MenuLabel)}>{"Menu"}</div>
@@ -53,10 +56,20 @@ pub fn menu() -> Html {
         }
 }
 fn menu_enum_to_html(menu: &'static [MenuItemEnum; 2]) -> Vec<Html> {
+    let history = use_history().unwrap();
     let (_store, store_dispatch) = use_store::<MenuStore>();
-   let handle_change_menu = {
+    let handle_change_menu = {
         let store_dispatch = store_dispatch.clone();
         Callback::from(move |menu_item: MenuItemEnum| {
+            history.push(Route::WebAssembly);
+            match menu_item{
+                MenuItemEnum::WebAssembly=>{
+                    history.push(Route::WebAssembly);
+                },
+                MenuItemEnum::Rust=>{
+                    history.push(Route::Rust);
+                },
+            }
             let store_dispatch = store_dispatch.clone();
             set_current_menu(menu_item, store_dispatch);
         })

@@ -13,7 +13,7 @@ pub fn webassembly() -> Html {
     <NavigationBar/>
     <div class="web-body">
     <Menu/>
-    <div class="web-content">{"content"}</div>
+    <div class="web-content">{"webAseembly"}</div>
     </div>
     </div>
       </div>
