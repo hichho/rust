@@ -35,7 +35,8 @@ pub fn home() -> Html {
       <div onclick={click_react}>
       <Icon svg={IconEnum::React} width={"12vh"} height={"12vh"} animation={true}/>
       </div>
-      <Icon svg={IconEnum::Rust} width={"12vh"} height={"12vh"} animation={true}/>
+    //   <Icon svg={IconEnum::Rust} width={"12vh"} height={"12vh"} animation={true}/>
+      <img src="./assets/rust.png" alt="" style="width:12vh;width:12vh"/>
       </div>
       <Button button_text={"get start !"} {onclick}/>
       </div>
