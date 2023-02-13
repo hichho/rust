@@ -1,12 +1,34 @@
-.web-frame{
+.web-frame {
   display: flex;
   flex-direction: column;
 }
-.web-body{
+
+.web-body {
   display: flex;
 }
-.web-content{
+
+.web-content {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  border: 1px solid gold;
+  justify-content: center;
+  align-items: center;
+}
+
+.wa {
+  width: 400px;
+  height: 400px;
+  cursor: pointer;
+}
+
+.cls-1 {
+  fill: white;
+}
+
+.cls-2 {
+  fill: #654ff0;
+}
+
+.performance {
+  cursor: pointer;
 }
