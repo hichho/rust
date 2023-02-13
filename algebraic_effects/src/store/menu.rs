@@ -26,3 +26,10 @@ pub fn change_menu_tab(menu_tab:MenuTab,dispatch:Dispatch<MenuStore>){
         store
     });
 }
+pub fn set_current_menu(current_menu:MenuItemEnum,dispatch:Dispatch<MenuStore>){
+    dispatch.reduce(move|store|{
+        let mut store = store.deref().clone();
+        store.current_menu = current_menu;
+        store
+    })
+}
