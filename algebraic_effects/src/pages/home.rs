@@ -25,21 +25,32 @@ pub fn home() -> Html {
         location.set_href(url).unwrap();
     });
     html! {
-      <div class={style}>
-      <NavigationBar/>
-      <div class="home-bg">
-      </div>
-      <div class="home-container">
-      <h1 class="home-title">{"Algebraic Effects"}</h1>
-      <div class="icons">
-      <div onclick={click_react}>
-      <Icon svg={IconEnum::React} width={"12vh"} height={"12vh"} animation={true}/>
-      </div>
-    //   <Icon svg={IconEnum::Rust} width={"12vh"} height={"12vh"} animation={true}/>
-      <img src="./assets/rust.png" alt="" style="width:12vh;width:12vh"/>
-      </div>
-      <Button button_text={"get start !"} {onclick}/>
-      </div>
-      </div>
-    }
+          <div class={style}>
+          <NavigationBar/>
+          <div class="home-bg">
+          </div>
+          <div class="home-container">
+          <div class="icons">
+          <div onclick={click_react}>
+          <Icon svg={IconEnum::React} width={"18vh"} height={"18vh"} animation={true}/>
+          </div>
+          <div class="rust-border">
+          <img class="rust" src="./assets/rust_icon.png" alt=""/>
+          </div>
+          </div>
+          <h1 class="home-title">{"Algebraic Effects"}</h1>
+          <div class="report-info">
+          <span>{"Match 1"}</span>
+          <div class="gray-line"></div>
+          <span>{"hichho"}</span>
+          </div>
+
+          <p>
+          <a target="_blank" class="start-button" {onclick}>
+          {"ignition"}
+          </a>
+          </p>
+          </div>
+          </div>
+        }
 }

@@ -45,7 +45,10 @@ pub fn navigation_bar() -> Html {
       <div class="icon-container">
       <Icon svg={IconEnum::React} height={"34px"} width={"34px"}/>
       </div>
-      <img src="./assets/rust.jpg" class="rust" onclick={handle_click_rust} alt="rust"/>
+      // <img src="./assets/rust.jpg" class="rust" onclick={handle_click_rust} alt="rust"/>
+       <div class="rust-border" onclick={handle_click_rust}>
+      <img class="rust" src="./assets/rust_icon.png" alt=""/>
+      </div>
       <p class="title" onclick={handle_click_title}>{"Algebraic Effects"}</p>
       </div>
       <div class="right-nav">

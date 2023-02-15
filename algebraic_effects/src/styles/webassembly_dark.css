@@ -14,21 +14,3 @@
   justify-content: center;
   align-items: center;
 }
-
-.wa {
-  width: 400px;
-  height: 400px;
-  cursor: pointer;
-}
-
-.cls-1 {
-  fill: white;
-}
-
-.cls-2 {
-  fill: #654ff0;
-}
-
-.performance {
-  cursor: pointer;
-}
