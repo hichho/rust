@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   border-bottom: 1px solid rgba(200, 200, 200, 0.2);
-  box-shadow: 0 1px 4px 1px rgba(120, 120, 120, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(100, 100, 100, 0.05);
 }
 
 .navigation {
@@ -86,7 +86,7 @@
 a {
   color: rgb(188, 193, 205);
   cursor: pointer;
-  margin-right: 12px;
+  margin-right: 18px;
 }
 
 .btn-container {

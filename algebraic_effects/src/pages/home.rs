@@ -45,10 +45,12 @@ pub fn home() -> Html {
           <span>{"hichho"}</span>
           </div>
 
-          <p>
-          <a target="_blank" class="start-button" {onclick}>
-          {"ignition"}
+          <p class="start-button">
+          {"Get ready to"}
+          <a target="_blank" class="start-button-text" {onclick}>
+          {"Ignition"}
           </a>
+          {"right now!"}
           </p>
           </div>
           </div>

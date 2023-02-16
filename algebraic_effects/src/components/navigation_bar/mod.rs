@@ -52,7 +52,7 @@ pub fn navigation_bar() -> Html {
       <p class="title" onclick={handle_click_title}>{"Algebraic Effects"}</p>
       </div>
       <div class="right-nav">
-      <a style="margin-left:12px">{"Stage"}</a>
+      <a style="margin-left:18px">{"Stage"}</a>
       <a>{"Speaker"}</a>
       <button class="btn-container" onclick={toggle_theme}>
       if theme == ThemeEnum::Dark{
