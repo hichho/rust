@@ -9,7 +9,7 @@
 }
 .button:hover{
   background-color: #107191;
-  animation: hoverButton 0.3s;
+  animation: hoverButton 0.4s;
 }
 @keyframes hoverButton {
   0%{

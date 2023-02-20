@@ -52,6 +52,19 @@ pub fn home() -> Html {
           </a>
           {"right now!"}
           </p>
+          <div class="copyright">
+          <div class="copyright-unit">{"hichho © "}</div>
+          <div class="copyright-unit">{"2023 "}</div>
+          <div class="copyright-unit">{"2023"}</div>
+          <div class="copyright-unit">{"2022"}</div>
+          <div class="copyright-unit">{"2021"}</div>
+          <div class="copyright-unit">{"2020"}</div>
+          </div>
+
+          <div class="speakers">
+          <div class="copyright-unit">{"Speakers"}</div>
+          <div class="copyright-unit">{"Code of Conduct"}</div>
+          </div>
           </div>
           </div>
         }

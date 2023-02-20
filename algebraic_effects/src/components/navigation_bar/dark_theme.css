@@ -41,14 +41,14 @@
   }
 }
 
-.title {
+.nav-title {
   margin: 0 12px;
   font-size: 16px;
   line-height: 100%;
   font-family: Open Sans, -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
-.rust-border {
+.nav-rust-border {
   width: 34px;
   height: 34px;
   margin-left: 12px;
@@ -57,7 +57,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  animation: trans_icon_border_color_to_black 0.6s;
+  animation: trans_icon_border_color_to_black 0.4s;
 }
 
 @keyframes trans_icon_border_color_to_black {
@@ -70,7 +70,7 @@
   }
 }
 
-.rust {
+.nav-rust {
   width: 32px;
   height: 32px;
   object-fit: contain;
