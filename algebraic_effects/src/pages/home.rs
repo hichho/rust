@@ -42,7 +42,7 @@ pub fn home() -> Html {
           <div class="report-info">
           <span>{"Match 1"}</span>
           <div class="gray-line"></div>
-          <span>{"hichho"}</span>
+          <a class="hichho" href="https://github.com/hichho">{"hichho"}</a>
           </div>
 
           <p class="start-button">

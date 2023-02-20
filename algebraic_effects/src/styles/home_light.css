@@ -35,6 +35,14 @@
   border-radius: 100%;
   animation: trans_border_color_to_black 0.4s;
 }
+.hichho{
+  color:rgba(244, 244, 244, 0.6);
+  text-decoration: none;
+  cursor: pointer;
+}
+.hichho:hover{
+  text-decoration: underline;
+}
 
 @keyframes trans_border_color_to_black {
   0% {
