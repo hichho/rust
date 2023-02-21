@@ -45,7 +45,7 @@ pub fn rust() -> Html {
     <NavigationBar/>
     <div class="web-body">
     <Menu/>
-    <div class="web-content">
+    <div class="rust-content">
      {list_to_html(rust_programming_language)}
     </div>
     </div>
@@ -58,28 +58,15 @@ fn list_to_html(list: Vec<RustProgrammingLanguage>) -> Vec<Html> {
     list.iter()
         .map(|item| {
             html! {
-                <div class="card">
-                <div class="content">
-                <div class="back">
-                <div class="back-content">
-                <img class="rust-book" src="./assets/rust.jpg" alt=""  />
-                 <strong>{item.title.clone()}</strong>
-                </div>
-                </div>
-                <div class="front">
-                <div class="img">
-                <div class="circle">
-                 </div>
-                 <div class="circle" id="right">
-                 </div>
-                 <div class="circle" id="bottom">
-                  </div>
-                  </div>
-                  <div class="front-content">
-                  <img src={item.img.clone()} alt=""/>
-                  </div>
-                </div>
-                </div>
+                <div class="rust-card">
+               <div class="rust-card-title">
+               <img class="rust-img" src="./assets/rust.jpg" alt="" /> 
+               <h2 class="rust-card-title">{item.title.clone()}</h2>
+               </div>
+
+                <img class="rust-code-image" src={item.img.clone()} alt=""/>
+
+
                 </div>
             }
         })
