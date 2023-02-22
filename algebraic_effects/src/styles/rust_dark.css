@@ -1,36 +1,79 @@
-.web-frame{
+.web-frame {
   display: flex;
   flex-direction: column;
 }
-.web-body{
+
+.web-body {
   display: flex;
 }
-.rust-content{
-  display:flex;
+
+.rust-content {
+  display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: calc(100vh - 126px);
   overflow-y: scroll;
-  border: 1px solid white;
-  /* width:calc(100vw - 120px); */
-  width:100%;
+  padding: 24px 20vw 42px 42px;
+  /* width: calc(100% - 500px); */
+  /* border: 1px solid white; */
 }
+
+.rust-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.rust-content::-webkit-scrollbar-track {
+  background-color: #2c2c2c;
+  border-radius: 4px;
+}
+
+.rust-content::-webkit-scrollbar-thumb {
+  background-color: #6b6b6b;
+  border-radius: 4px;
+}
+
 .rust-card {
-  overflow: visible;
-  width: 28%;
+  /* overflow: visible; */
+  /* width: 28%; */
   /* margin:0 2%; */
-  height: 45%;
+  /* height: 45%; */
 }
-.rust-card-title{
+
+.rust-card-title {
   display: flex;
   align-items: center;
 }
-.rust-img{
-  width:24px;
+
+.rust-img {
+  width: 32px;
   object-fit: contain;
 }
-.rust-card-title{
+
+.rust-card-title-text {
+  font-size: 18px;
+  margin-left: 12px;
+}
+
+.rust-content-text {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+
+.content-item {
+  text-indent: 32px;
+  line-height: 220%;
+  margin:4px 0;
   font-size: 15px;
 }
-.rust-code-image{
-  width:200px;
+
+.image-frame{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rust-code-image {
+  width: 720px;
+  object-fit: contain;
+  margin:18px 0;
 }
