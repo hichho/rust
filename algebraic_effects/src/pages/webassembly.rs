@@ -9,12 +9,13 @@ const LIGHT_STYLE_FILE: &str = include_str!("../styles/webassembly_light.css");
 #[function_component(WebAssembly)]
 pub fn webassembly() -> Html {
     let style_file = use_theme_file(DARK_STYLE_FILE, LIGHT_STYLE_FILE);
+    // todo:pref
     let click_webassembly = Callback::from(move |_: _| {
         let url = "https://developer.mozilla.org/zh-CN/docs/WebAssembly";
         let location = window().unwrap().location();
         location.set_href(url).unwrap();
     });
-    let open_performance_article= Callback::from(move |_: _| {
+    let open_performance_article = Callback::from(move |_: _| {
         let _url = "https://blog.unity.com/technology/webassembly-load-times-and-performance";
         let _location = window().unwrap().location();
         _location.set_href(_url).unwrap();
@@ -28,6 +29,11 @@ pub fn webassembly() -> Html {
     });
     let open_yew = Callback::from(move |_: _| {
         let _url = "https://yew.rs/";
+        let _location = window().unwrap().location();
+        _location.set_href(_url).unwrap();
+    });
+    let open_ambient_article = Callback::from(move |_: _| {
+        let _url = "https://www.ambient.run/post/introducing-ambient";
         let _location = window().unwrap().location();
         _location.set_href(_url).unwrap();
     });
@@ -51,12 +57,17 @@ pub fn webassembly() -> Html {
     <li><p class="li-p">{"WebAseembl可以与JavaScript互操作，共享内存和对象，并且不需要额外的开销。"}</p></li>
     </ul>
     <div class="link-pool">
-     <button class="cssbuttons-io-button" style="width:138px;" onclick={open_performance_article}> {"performance"}
+     <button class="cssbuttons-io-button" style="width:142px;" onclick={open_performance_article}> {"performance"}
     <div class="icon">
     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
      </div>
     </button>
-    <button class="cssbuttons-io-button" style="width:108px;" onclick={open_efficient_article}> {"efficient"}
+    <button class="cssbuttons-io-button" style="width:110px;" onclick={open_efficient_article}> {"efficient"}
+    <div class="icon">
+    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+     </div>
+    </button>
+      <button class="cssbuttons-io-button" style="width:110px;" onclick={open_ambient_article}> {"ambient"}
     <div class="icon">
     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
      </div>

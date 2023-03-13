@@ -2,13 +2,13 @@ use stylist::yew::styled_component;
 use stylist::Style;
 use yew::prelude::*;
 
-#[derive(Properties, Clone, PartialEq)]
+#[derive(Properties,Clone, PartialEq)]
 pub struct Props {
     pub button_text: String,
     pub onclick: Option<Callback<MouseEvent>>,
 }
 
-const STYLE_FILE:&str = include_str!("style.css");
+const STYLE_FILE: &str = include_str!("style.css");
 
 #[styled_component(Button)]
 pub fn button(props: &Props) -> Html {

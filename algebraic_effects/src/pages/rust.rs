@@ -19,7 +19,7 @@ pub fn rust() -> Html {
     let rust_programming_language: Vec<RustProgrammingLanguage> = vec![
         RustProgrammingLanguage {
             title: "所有权".to_string(),
-            content:vec!["rust的所有权是用来管理堆内存的，所有权就是堆上数据的拥有和释放权。
+            content:vec!["Rust的所有权是用来管理堆内存的，所有权就是堆上数据的拥有和释放权。
             所有权规定了每个值在任何给定时间点只能被一个所有者所拥有，同时该所有者可以使用和释放该值。
             Rust 编译器在编译时检查所有权和借用规则，以保证程序运行时的内存安全性和线程安全性。所有权规则有以下三条:1.Rust中的每个值都有一个变量，称为它的所有者。
             2.一个值在同一时刻有且只有一个所有者。
@@ -66,6 +66,7 @@ pub fn rust() -> Html {
     <Menu/>
 
     <div class="rust-content">
+    <h1 class="rust-title">{"Rust"}</h1>
      {list_to_html(rust_programming_language)}
     </div>
     </div>
@@ -84,7 +85,6 @@ fn list_to_html(list: Vec<RustProgrammingLanguage>) -> Vec<Html> {
                <h2 class="rust-card-title-text">{item.title.clone()}</h2>
                </div>
 
-            //    <div>{item.content.clone()}</div>
                <div class="rust-content-text">{content_to_html(item.content.clone())}</div>
 
                 <div class="image-frame">

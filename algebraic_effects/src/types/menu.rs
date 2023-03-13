@@ -4,12 +4,14 @@ use std::fmt;
 pub enum MenuItemEnum {
     WebAssembly,
     Rust,
+    Effect
 }
 impl fmt::Display for MenuItemEnum {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
             MenuItemEnum::WebAssembly => write!(f, "WebAssembly"),
             MenuItemEnum::Rust => write!(f, "Rust"),
+            MenuItemEnum::Effect=> write!(f, "Effect"),
         }
     }
 }
@@ -31,4 +33,4 @@ impl Default for MenuTab {
         MenuTab::MenuLabel
     }
 }
-pub const MENU_ARRAY: [MenuItemEnum; 2] = [MenuItemEnum::WebAssembly, MenuItemEnum::Rust];
+pub const MENU_ARRAY: [MenuItemEnum; 3] = [MenuItemEnum::WebAssembly, MenuItemEnum::Rust,MenuItemEnum::Effect];
