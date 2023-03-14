@@ -7,7 +7,7 @@
   display: flex;
 }
 
-.effect-title {
+.advantages-title {
   font-size: 32px;
   line-height: 100%;
   margin: 20px 0 20px 0;
@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.effect-content {
+.advantages-content {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 126px);
@@ -25,37 +25,37 @@
   align-items: stretch;
 }
 
-.effect-content::-webkit-scrollbar {
+.advantages-content::-webkit-scrollbar {
   width: 4px;
 }
 
-.effect-content::-webkit-scrollbar-track {
+.advantages-content::-webkit-scrollbar-track {
   background-color: #2c2c2c;
   border-radius: 4px;
 }
 
-.effect-content::-webkit-scrollbar-thumb {
+.advantages-content::-webkit-scrollbar-thumb {
   background-color: #6b6b6b;
   border-radius: 4px;
 }
 
 
-.effect-card-title {
+.advantages-card-title {
   display: flex;
   align-items: center;
 }
 
-.effect-img {
+.advantages-img {
   width: 32px;
   object-fit: contain;
 }
 
-.effect-card-title-text {
+.advantages-card-title-text {
   font-size: 18px;
   margin-left: 12px;
 }
 
-.effect-content-text {
+.advantages-content-text {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -76,7 +76,7 @@
   align-items: center;
 }
 
-.effect-code-image {
+.advantages-code-image {
   width: 700px;
   object-fit: contain;
   margin: 18px 0;

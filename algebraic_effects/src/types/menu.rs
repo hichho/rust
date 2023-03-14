@@ -1,10 +1,11 @@
 use serde::{Deserialize, Serialize};
-use std::fmt;
+use std::fmt::{self};
 #[derive(Clone, PartialEq, Debug, Copy, Serialize, Deserialize)]
 pub enum MenuItemEnum {
     WebAssembly,
     Rust,
-    Effect
+    Effect,
+    Advantages,
 }
 impl fmt::Display for MenuItemEnum {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
@@ -12,6 +13,7 @@ impl fmt::Display for MenuItemEnum {
             MenuItemEnum::WebAssembly => write!(f, "WebAssembly"),
             MenuItemEnum::Rust => write!(f, "Rust"),
             MenuItemEnum::Effect=> write!(f, "Effect"),
+            MenuItemEnum::Advantages=>write!(f,"Advantages")
         }
     }
 }
@@ -33,4 +35,4 @@ impl Default for MenuTab {
         MenuTab::MenuLabel
     }
 }
-pub const MENU_ARRAY: [MenuItemEnum; 3] = [MenuItemEnum::WebAssembly, MenuItemEnum::Rust,MenuItemEnum::Effect];
+pub const MENU_ARRAY: [MenuItemEnum; 4] = [MenuItemEnum::WebAssembly, MenuItemEnum::Rust,MenuItemEnum::Effect,MenuItemEnum::Advantages];
