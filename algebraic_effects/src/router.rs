@@ -5,6 +5,7 @@ use yew_router::prelude::*;
 use crate::pages::webassembly::WebAssembly;
 use crate::pages::effect::Effect;
 use crate::pages::advantages::Advantages;
+use crate::pages::usage::Usage;
 #[derive(Debug, Clone, Routable, PartialEq)]
 pub enum Route {
     #[at("/")]
@@ -17,6 +18,8 @@ pub enum Route {
     Effect,
     #[at("/advantages")]
     Advantages,
+    #[at("/usage")]
+    Usage
 }
 pub fn switch(route: &Route) -> Html {
     match route {
@@ -24,6 +27,7 @@ pub fn switch(route: &Route) -> Html {
         Route::WebAssembly=> html! {<WebAssembly/>},
         Route::Rust => html!(<Rust/>),
         Route::Effect=>html!(<Effect/>),
-        Route::Advantages=>html!(<Advantages/>)
+        Route::Advantages=>html!(<Advantages/>),
+        Route::Usage=>html!(<Usage/>)
     }
 }

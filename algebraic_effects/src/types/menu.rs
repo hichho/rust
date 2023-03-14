@@ -6,6 +6,7 @@ pub enum MenuItemEnum {
     Rust,
     Effect,
     Advantages,
+    Usage,
 }
 impl fmt::Display for MenuItemEnum {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
@@ -13,7 +14,8 @@ impl fmt::Display for MenuItemEnum {
             MenuItemEnum::WebAssembly => write!(f, "WebAssembly"),
             MenuItemEnum::Rust => write!(f, "Rust"),
             MenuItemEnum::Effect=> write!(f, "Effect"),
-            MenuItemEnum::Advantages=>write!(f,"Advantages")
+            MenuItemEnum::Advantages=>write!(f,"Advantages"),
+            MenuItemEnum::Usage=>write!(f,"Usage")
         }
     }
 }
@@ -35,4 +37,4 @@ impl Default for MenuTab {
         MenuTab::MenuLabel
     }
 }
-pub const MENU_ARRAY: [MenuItemEnum; 4] = [MenuItemEnum::WebAssembly, MenuItemEnum::Rust,MenuItemEnum::Effect,MenuItemEnum::Advantages];
+pub const MENU_ARRAY: [MenuItemEnum; 5] = [MenuItemEnum::WebAssembly, MenuItemEnum::Rust,MenuItemEnum::Effect,MenuItemEnum::Advantages,MenuItemEnum::Usage];

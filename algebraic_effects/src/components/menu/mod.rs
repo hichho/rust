@@ -55,7 +55,7 @@ pub fn menu() -> Html {
           </div>
         }
 }
-fn menu_enum_to_html(menu: &'static [MenuItemEnum; 4]) -> Vec<Html> {
+fn menu_enum_to_html(menu: &'static [MenuItemEnum; 5]) -> Vec<Html> {
     let history = use_history().unwrap();
     let (_store, store_dispatch) = use_store::<MenuStore>();
     let handle_change_menu = {
@@ -74,6 +74,9 @@ fn menu_enum_to_html(menu: &'static [MenuItemEnum; 4]) -> Vec<Html> {
                 }
                 MenuItemEnum::Advantages=>{
                     history.push(Route::Advantages)
+                }
+                MenuItemEnum::Usage=>{
+                    history.push(Route::Usage)
                 }
             }
             let store_dispatch = store_dispatch.clone();
